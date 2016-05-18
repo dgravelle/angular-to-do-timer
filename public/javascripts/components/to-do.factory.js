@@ -3,11 +3,11 @@
 
   angular
     .module('app')
-    .factory('ToDoFactory' ToDoFactory)
+    .factory('ToDoFactory', ToDoFactory)
 
   function ToDoFactory($http) {
     return {
-      getAll: $http.get('/api/to-do-list');
+      getAll: $http.get('/api/todolist')
     }
   }
 }());
