@@ -1,4 +1,18 @@
+
+
 <div ng-controller="ToDoController">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h2>To Do's</h2>
+      <form name="addToDo" ng-submit="vm.createToDo()">
+        <div class="form-group">
+          <label for="" class="label-control">Add</label>
+          <input type="text" name="title" ng-model="title" class="form-control">
+        </div>
+        <input type="submit" value="Add">
+      </form>
+    </div>
+  </div>
   <div class="row">
     <div class="to-do-container" ng-repeat="toDo in vm.toDoList">
       <div class="col-sm-6 col-md-4">

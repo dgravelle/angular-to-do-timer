@@ -12,6 +12,11 @@ router.get('/todolist', (req, res, next) => {
     // console.log(err);
     res.json(err);
   })
+});
+
+router.post('/todolist', (req, res) => {
+  console.log('in');
+  res.end('done');
 })
 
 module.exports = router;
