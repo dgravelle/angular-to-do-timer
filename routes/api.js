@@ -30,11 +30,17 @@ router.delete('/todolist/:id', (req, res) => {
     console.log('404', err);
     res.end(err);
   });
+});
 
-})
-
-router.put('/todolist', (req, res) => {
-
+router.put('/todolist/:id', (req, res) => {
+  console.log(req.body);
+  knex('to_do_list').where({ id: req.params.id }).update({ title: req.body.title, timeElapsed: req.body.timeElapsed }).then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    console.log('404', err);
+    res.end(err);
+  });
 })
 
 module.exports = router;

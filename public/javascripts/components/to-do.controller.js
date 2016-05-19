@@ -34,6 +34,16 @@
       });
     }
 
+    $scope.vm.updateToDo = function(toDo) {
+      ToDoFactory.updateToDo(toDo).then((data) => {
+        console.log(data);
+        $location.path('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+
     $scope.vm.deleteToDo = function(toDo) {
       ToDoFactory.deleteToDo(toDo).then((data) => {
         console.log(data);

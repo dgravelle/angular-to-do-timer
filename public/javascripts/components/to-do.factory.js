@@ -14,6 +14,9 @@
         console.log(newItem);
         return $http.post('/api/todolist', newItem);
       },
+      updateToDo: function(toDo) {
+        return $http.put('/api/todolist/' + toDo.id, toDo);
+      },
       deleteToDo: function(toDo) {
         return $http.delete('/api/todolist/' + toDo.id);
       }
