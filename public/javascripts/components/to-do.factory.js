@@ -10,15 +10,12 @@
       getAll: function() {
         return $http.get('/api/todolist')
       },
-      createTask: function(newItem) {
-        console.log('posting');
+      createToDo: function(newItem) {
         console.log(newItem);
-        return $http({
-          method: 'POST',
-          url: 'api/todolist',
-          headers: {'Content-Type': 'application/json'},
-          data: { title: newItem }
-        })
+        return $http.post('/api/todolist', newItem);
+      },
+      deleteToDo: function(toDo) {
+        return $http.delete('/api/todolist/' + toDo.id);
       }
     }
   }

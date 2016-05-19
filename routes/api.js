@@ -5,8 +5,7 @@ const knex = require('../db/knex');
 
 router.get('/todolist', (req, res, next) => {
   knex.select('*').from('to_do_list').then((data) => {
-    console.log(data);
-    res.status(200).send(data);
+    res.send(data);
   })
   .catch((err) => {
     // console.log(err);
@@ -16,11 +15,22 @@ router.get('/todolist', (req, res, next) => {
 
 router.post('/todolist', (req, res) => {
   knex('to_do_list').insert({ title: req.body.title }).then((data) => {
-    res.status(200).send(data);
+    res.send(data);
   })
   .catch((err) => {
     console.log(err);
   })
+})
+
+router.delete('/todolist/:id', (req, res) => {
+  knex('to_do_list').where({ id: req.params.id }).del().then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    console.log('404', err);
+    res.end(err);
+  });
+
 })
 
 router.put('/todolist', (req, res) => {

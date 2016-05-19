@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="to-do-list--container" ng-repeat="toDo in toDoList | orderBy: '-id' track by $index">
+    <div class="to-do-list--container" ng-repeat="toDo in vm.toDoList | orderBy: '-id' track by $index">
       <div class="col-sm-6 col-md-4">
         <form name="toDoItem">
           <div class="form-group">
@@ -24,7 +24,7 @@
           </div>
           <div class="pull-right">
             <button class="btn btn-default">Edit</button>
-            <button class="btn btn-default">x</button>
+            <button class="btn btn-default" ng-click="vm.deleteToDo(toDo)">x</button>
           </div>
         </form>
       </div>
