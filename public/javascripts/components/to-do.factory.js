@@ -7,14 +7,17 @@
 
   function ToDoFactory($http) {
     return {
-      getAll: $http.get('/api/todolist'),
+      getAll: function() {
+        return $http.get('/api/todolist')
+      },
       createTask: function(newItem) {
         console.log('posting');
+        console.log(newItem);
         return $http({
           method: 'POST',
           url: 'api/todolist',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          data: newItem
+          headers: {'Content-Type': 'application/json'},
+          data: { title: newItem }
         })
       }
     }

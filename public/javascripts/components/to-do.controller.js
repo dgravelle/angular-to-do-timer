@@ -12,21 +12,25 @@
       if (!$scope.addToDo.$valid) {
         return console.log('oops');
       }
+
       ToDoFactory.createTask(addToDo.title.value).then((data) => {
+        $scope.getToDos()
         $location.path('/');
-        console.log(data);
       })
       .catch((err) => {
         console.log('error', err);
       });
     }
 
-    ToDoFactory.getAll.then((data) => {
-      $scope.vm.toDoList = data.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-
+    $scope.getToDos = function() {
+      return ToDoFactory.getAll().then((data) => {
+        console.log(data);
+        $scope.toDoList = data.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+    $scope.getToDos();
   }
 }());

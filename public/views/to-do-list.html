@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="to-do-container" ng-repeat="toDo in vm.toDoList">
+    <div class="to-do-list--container" ng-repeat="toDo in toDoList | orderBy: '-id' track by $index">
       <div class="col-sm-6 col-md-4">
         <form name="toDoItem">
           <div class="form-group">
