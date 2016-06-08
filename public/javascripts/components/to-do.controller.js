@@ -10,7 +10,6 @@
 
     $scope.vm.getToDos = function() {
       return ToDoFactory.getAll().then((data) => {
-        console.log(data);
         $scope.vm.toDoList = data.data;
       })
       .catch((err) => {
@@ -26,7 +25,6 @@
       }
 
       ToDoFactory.createToDo({ title: addToDo.title.value }).then((data) => {
-        console.log(data);
         $scope.vm.getToDos()
       })
       .catch((err) => {
@@ -36,7 +34,6 @@
 
     $scope.vm.updateToDo = function(toDo) {
       ToDoFactory.updateToDo(toDo).then((data) => {
-        console.log(data);
         $location.path('/');
       })
       .catch((err) => {
@@ -46,7 +43,6 @@
 
     $scope.vm.deleteToDo = function(toDo) {
       ToDoFactory.deleteToDo(toDo).then((data) => {
-        console.log(data);
         $scope.vm.getToDos()
       })
       .catch((err) => {

@@ -15,18 +15,7 @@
   </div>
   <div class="row">
     <div class="to-do-list--container" ng-repeat="toDo in vm.toDoList | orderBy: '-id' track by $index">
-      <div class="col-sm-6 col-md-4">
-        <form name="toDoItem">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" ng-model="toDo.title" ng-blur="toDoItem.$pristine ? angular.noop() : vm.updateToDo(toDo)" value="{{ toDo.title }}">
-          </div>
-          <div class="pull-right">
-            <button class="btn btn-default">Edit</button>
-            <button class="btn btn-default" ng-click="vm.deleteToDo(toDo)">x</button>
-          </div>
-        </form>
-      </div>
+      <to-do-item></to-do-item>
       <div class="clearfix"></div>
     </div>
   </div>
