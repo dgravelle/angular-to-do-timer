@@ -18,6 +18,7 @@
         return $http.put('/api/todolist/' + toDo.id, toDo);
       },
       deleteToDo: function(toDo) {
+        console.log(toDo);
         return $http.delete('/api/todolist/' + toDo.id);
       }
     }

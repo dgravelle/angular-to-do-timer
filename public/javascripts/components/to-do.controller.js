@@ -5,7 +5,7 @@
     .module('app')
     .controller('ToDoController', ToDoController)
 
-  function ToDoController($scope, $location, $interval, ToDoFactory) {
+  function ToDoController($scope, $location, ToDoFactory) {
     $scope.vm = {}
 
     $scope.vm.getToDos = function() {
@@ -33,6 +33,7 @@
     }
 
     $scope.vm.updateToDo = function(toDo) {
+      console.log('updating');
       ToDoFactory.updateToDo(toDo).then((data) => {
         $location.path('/');
       })

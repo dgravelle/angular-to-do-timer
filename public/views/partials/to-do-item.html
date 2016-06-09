@@ -1,9 +1,9 @@
 <div class="col-sm-6 col-md-6">
   <div class="form-group">
-    <input type="text" name="title" class="form-control" ng-model="toDo.title" ng-blur="toDoItem.$pristine ? angular.noop() : vm.updateToDo(toDo)" value="{{ toDo.title }}">
+    <input type="text" name="title" class="form-control" ng-model="task.title" ng-blur="toDoItem.$pristine ? angular.noop() : updateTask(task)" value="{{ task.title }}">
   </div>
   <div class="pull-right">
-    <button class="btn btn-default" ng-click="vm.deleteToDo(toDo)">x</button>
+    <button class="btn btn-default" ng-click="deleteTask(task)">x</button>
   </div>
   <div class="to-do--timer">
     <button id="startTimer" class="btn btn-default" ng-click="startTimer()">Start</button>

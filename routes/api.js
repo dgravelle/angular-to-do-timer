@@ -23,8 +23,9 @@ router.post('/todolist', (req, res) => {
 })
 
 router.delete('/todolist/:id', (req, res) => {
+  console.log(req.params.id);
   knex('to_do_list').where({ id: req.params.id }).del().then((data) => {
-    res.send(data);
+    res.end(data);
   })
   .catch((err) => {
     console.log('404', err);

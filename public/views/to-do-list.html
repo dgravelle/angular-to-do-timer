@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class="row to-do-list--container" ng-repeat="toDo in vm.toDoList | orderBy: '-id' track by $index">
-        <to-do-item></to-do-item>
+        <to-do-item task="toDo" update-task="vm.updateToDo" delete-task="vm.deleteToDo"></to-do-item>
         <div class="clearfix"></div>
       </div>
     </div>
