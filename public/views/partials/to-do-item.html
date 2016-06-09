@@ -1,8 +1,15 @@
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-6">
   <div class="form-group">
     <input type="text" name="title" class="form-control" ng-model="toDo.title" ng-blur="toDoItem.$pristine ? angular.noop() : vm.updateToDo(toDo)" value="{{ toDo.title }}">
   </div>
   <div class="pull-right">
     <button class="btn btn-default" ng-click="vm.deleteToDo(toDo)">x</button>
+  </div>
+  <div class="to-do--timer">
+    <button id="startTimer" class="btn btn-default" ng-click="startTimer()">Start</button>
+    <button id="pauseTimer" class="btn btn-default">Pause</button>
+    <span ng-model="minutesDisplay">{{ minutesDisplay }}</span>
+    <span>:</span>
+    <span ng-model="secondsDisplay">{{ secondsDisplay }}</span>
   </div>
 </div>

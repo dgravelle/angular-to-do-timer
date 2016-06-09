@@ -5,7 +5,7 @@
     .module('app')
     .controller('ToDoController', ToDoController)
 
-  function ToDoController($scope, $location, ToDoFactory) {
+  function ToDoController($scope, $location, $interval, ToDoFactory) {
     $scope.vm = {}
 
     $scope.vm.getToDos = function() {
