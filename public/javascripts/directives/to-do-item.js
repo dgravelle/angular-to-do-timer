@@ -8,18 +8,21 @@
       return {
         restrict: 'E',
         templateUrl: 'views/partials/to-do-item.html',
-        scope: {
-          taskId: '=id'
-        },
+        // scope: {
+        //   taskId: '=id'
+        // },
         link: function(scope, element, attrs) {
           var totalSeconds = 0;
+          var timerID;
+
+          scope.secondsDisplay = '00';
+          scope.minutesDisplay = '00';
 
           scope.startTimer = function() {
-            $interval(incrementTimer, 1000)
+            timerID = $interval(incrementTimer, 1000);
           }
 
           function incrementTimer() {
-            console.log('going');
             ++totalSeconds;
             scope.secondsDisplay = scrub(totalSeconds % 60);
             scope.minutesDisplay = scrub(parseInt(totalSeconds / 60));
@@ -34,6 +37,18 @@
               return time;
             }
           }
+
+           scope.pauseTimer = function() {
+            $interval.cancel(timerID);
+          }
+
+          function clearTimer() {
+            $interval.cancel(timerID);
+            totalSeconds = 0;
+            secondsDisplay = "00";
+            minutesDisplay = "00";
+          }
+
         }
       }
     }
