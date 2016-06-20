@@ -8,10 +8,15 @@
 
       $scope.form = {};
 
-      $scope.form.handleCreateAccount = function(isValid) {
+      $scope.handleCreateAccount = function(isValid) {
           if (isValid) {
-            alert('success');
-
+            // alert('success');
+            console.log($scope.form);
+            $http
+              .post('/users', $scope.form)
+              .then(data => {
+                console.log(data);
+              })
           }
       }
     }

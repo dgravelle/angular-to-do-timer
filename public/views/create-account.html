@@ -2,14 +2,14 @@
   <div class="col-sm-6 col-sm-offset-3">
     {{ $scope.createAccount }}
     {{ $scope.form.name }}
-    <form name="createAccount" ng-submit="form.handleCreateAccount(createAccount.$valid)" novalidate>
+    <form name="createAccount" ng-submit="handleCreateAccount(createAccount.$valid)" novalidate>
       <legend>Create an Account</legend>
       <div class="form-group">
         <label for="name" class="label-control">Name</label>
         <input id="name"
           class="form-control"
           type="text"
-          ng-model="name"
+          ng-model="form.name"
           ng-pattern="string"
           required
           />
