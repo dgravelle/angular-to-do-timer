@@ -9,6 +9,14 @@
           templateUrl: 'views/to-do-list.html',
           controller: 'ToDoController'
         })
+        .when('/login', {
+          templateUrl: 'views/login.html',
+          controller: 'LoginController'
+        })
+        .when('/create', {
+          templateUrl: 'views/create-account.html',
+          controller: 'CreateAccountController'
+        })
         .otherwise({
           redirectTo: '/'
         })
